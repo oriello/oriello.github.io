@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Oriello - Digital Craftsmanship",
-    "description": "Custom websites for your image. I work with small businesses and creative professionals who need more than a template."
+    "title": "Oriello - Web Design for Photographers & Bands in Prague",
+    "description": "Affordable website agency in Prague creating bespoke websites for photographers, bands, artists, and creatives. Get a professional website from a Prague-based web developer."
   },
   "navigation": {
     "projects": "Projects",
@@ -10,8 +10,8 @@
   },
   "hero": {
     "name": "Oriello",
-    "tagline": "Custom websites for your image",
-    "description": "I work with small businesses and creative professionals who need more than a template. Whether you're running a unique café, launching a music project, opening a boutique store, or building something completely different—I create websites that work as hard as you do.",
+    "tagline": "Websites for Photographers, Bands & Creatives",
+    "description": "I'm a Prague-based web developer building affordable, bespoke websites for photographers, bands, artists, and visionaries. Need a website that truly represents your brand? Let's create something unique together. Your search for the perfect website developer in Prague ends here.",
     "scroll_down_prompt": "Dive Deeper",
     "availability": "Taking New Projects",
     "availability_status": "available",
@@ -80,9 +80,9 @@
   "about": {
     "image_alt": "Hugh Doriello, the creative mind behind Oriello, in his element—part developer, part artist.",
     "photo_url": "https://i.ibb.co/Ps56tmg5/rise-divu-37-1.jpg",
-    "heading": "I'm Hugh—developer, designer, and occasional perfectionist.",
-    "p1": "I've spent years building websites for businesses that care about how they're represented online. Most developers treat every project the same way—but your coffee shop isn't the same as a law firm, and your boutique isn't the same as a tech startup.",
-    "p2": "I take time to understand what makes your business unique, then build something that actually reflects that. Whether you need to showcase products, take bookings, build a community, or just look professional online, I'll make sure it works perfectly for your specific needs."
+    "heading": "I'm Hugh—a Prague-based web developer and designer.",
+    "p1": "As a Prague web developer, I've spent years building websites for businesses that care about how they're represented online. Most developers treat every project the same way—but your photography business isn't the same as a band, and your boutique isn't the same as a tech startup. That's why I offer an affordable website agency alternative with a personal touch.",
+    "p2": "I take time to understand what makes your project unique. Whether you need a stunning website for a photographer, a powerful hub for a band, or a custom site to grow your business, I build something that truly reflects your vision. Let's create a professional website in Prague that connects you with your audience."
   },
   "testimonials": {
     "title": "What Fellow Creators Say",

@@ -79,6 +79,21 @@ const BoltIcon = BoltIcon$1;
 const DiscoveryCallIcon = ChatBubbleOvalLeftEllipsisIcon;
 const ArrowLeftIcon = ArrowLeftIcon$1;
 const ArrowRightIcon = ArrowRightIcon$1;
+const InstagramIcon = (props) => /* @__PURE__ */ jsxs(
+  "svg",
+  {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    "aria-hidden": "true",
+    ...props,
+    children: [
+      /* @__PURE__ */ jsx("path", { d: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.664-4.919-4.919-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919A48.041 48.041 0 0112 2.163zm0 1.625c-3.142 0-3.48.01-4.69.066-2.69.123-3.832 1.264-3.954 3.955-.057 1.214-.066 1.548-.066 4.688s.01 3.474.066 4.688c.122 2.69 1.264 3.832 3.955 3.955 1.21.056 1.547.066 4.69.066 3.142 0 3.48-.01 4.69-.066 2.69-.123 3.832-1.264 3.955-3.955.056-1.214.066-1.548.066-4.688s-.01-3.474-.066-4.688c-.123-2.69-1.264-3.832-3.955-3.955A46.54 46.54 0 0012 3.788z" }),
+      /* @__PURE__ */ jsx("path", { d: "M12 7.088c-2.71 0-4.912 2.202-4.912 4.912s2.202 4.912 4.912 4.912 4.912-2.202 4.912-4.912-2.202-4.912-4.912-4.912zm0 8.25c-1.84 0-3.338-1.498-3.338-3.338s1.498-3.338 3.338-3.338 3.338 1.498 3.338 3.338-1.498 3.338-3.338 3.338z" }),
+      /* @__PURE__ */ jsx("path", { d: "M16.965 6.57c.606 0 1.095.49 1.095 1.095s-.49 1.095-1.095 1.095-1.095-.49-1.095-1.095.489-1.095 1.095-1.095z" })
+    ]
+  }
+);
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(() => {
     if (typeof window !== "undefined") {
@@ -234,7 +249,25 @@ const Footer = () => {
         ] }),
         /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-green-300 tracking-wider", children: hero.availability })
       ] }),
-      contact_form.direct_email_address && /* @__PURE__ */ jsx("a", { href: `mailto:${contact_form.direct_email_address}`, className: "text-sm text-gray-300 hover:text-white transition-colors", children: contact_form.direct_email_address })
+      contact_form.direct_email_address && /* @__PURE__ */ jsx(
+        "a",
+        {
+          href: `mailto:${contact_form.direct_email_address}`,
+          className: "text-sm text-gray-300 hover:text-white transition-colors",
+          children: contact_form.direct_email_address
+        }
+      ),
+      /* @__PURE__ */ jsx(
+        "a",
+        {
+          href: "https://www.instagram.com/oriello.websites/",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          "aria-label": "Follow Oriello on Instagram",
+          className: "text-gray-300 hover:text-white transition-colors",
+          children: /* @__PURE__ */ jsx(InstagramIcon, { className: "w-6 h-6" })
+        }
+      )
     ] })
   ] }) });
 };
