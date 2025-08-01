@@ -306,22 +306,9 @@ const LanguageLayout = ({ initialContent }) => {
   const handleLangChange = (newLang) => {
     if (newLang === currentLang) return;
     const { pathname } = location;
-    let basePath = pathname;
     const langPrefix = `/${currentLang}`;
-    if (currentLang !== "en" && pathname.startsWith(langPrefix)) {
-      basePath = pathname.substring(langPrefix.length);
-    } else if (pathname.startsWith("/en/")) {
-      basePath = pathname.substring(3);
-    }
-    if (basePath === "") {
-      basePath = "/";
-    }
-    let newPath;
-    if (newLang === "en") {
-      newPath = basePath;
-    } else {
-      newPath = `/${newLang}${basePath === "/" ? "" : basePath}`;
-    }
+    const basePath = pathname.substring(langPrefix.length);
+    const newPath = `/${newLang}${basePath}`;
     navigate(newPath);
   };
   const mobileGradient = "radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 75%)";
@@ -1637,10 +1624,14 @@ const getInitialLanguage = () => {
 };
 const App = ({ initialContent }) => {
   return /* @__PURE__ */ jsxs(Routes, { children: [
+    /* @__PURE__ */ jsx(
+      Route,
+      {
+        path: "/",
+        element: /* @__PURE__ */ jsx(Navigate, { to: `/${getInitialLanguage()}`, replace: true })
+      }
+    ),
     /* @__PURE__ */ jsxs(Route, { element: /* @__PURE__ */ jsx(LanguageLayout, { initialContent }), children: [
-      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/projects", element: /* @__PURE__ */ jsx(ProjectsPage, {}) }),
-      /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(HomePage, { contactOpen: true }) }),
       /* @__PURE__ */ jsx(Route, { path: "/:lang", element: /* @__PURE__ */ jsx(HomePage, {}) }),
       /* @__PURE__ */ jsx(Route, { path: "/:lang/projects", element: /* @__PURE__ */ jsx(ProjectsPage, {}) }),
       /* @__PURE__ */ jsx(
