@@ -1620,25 +1620,20 @@ const getInitialLanguage = () => {
 };
 const App = ({ initialContent }) => {
   return /* @__PURE__ */ jsxs(Routes, { children: [
-    /* @__PURE__ */ jsx(
-      Route,
-      {
-        path: "/",
-        element: /* @__PURE__ */ jsx(Navigate, { to: `/${getInitialLanguage()}`, replace: true })
-      }
-    ),
-    /* @__PURE__ */ jsxs(
-      Route,
-      {
-        path: "/:lang",
-        element: /* @__PURE__ */ jsx(LanguageLayout, { initialContent }),
-        children: [
-          /* @__PURE__ */ jsx(Route, { index: true, element: /* @__PURE__ */ jsx(HomePage, {}) }),
-          /* @__PURE__ */ jsx(Route, { path: "projects", element: /* @__PURE__ */ jsx(ProjectsPage, {}) }),
-          /* @__PURE__ */ jsx(Route, { path: "contact", element: /* @__PURE__ */ jsx(HomePage, { contactOpen: true }) })
-        ]
-      }
-    ),
+    /* @__PURE__ */ jsxs(Route, { element: /* @__PURE__ */ jsx(LanguageLayout, { initialContent }), children: [
+      /* @__PURE__ */ jsx(Route, { path: "/", element: /* @__PURE__ */ jsx(HomePage, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/projects", element: /* @__PURE__ */ jsx(ProjectsPage, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsx(HomePage, { contactOpen: true }) }),
+      /* @__PURE__ */ jsx(Route, { path: "/:lang", element: /* @__PURE__ */ jsx(HomePage, {}) }),
+      /* @__PURE__ */ jsx(Route, { path: "/:lang/projects", element: /* @__PURE__ */ jsx(ProjectsPage, {}) }),
+      /* @__PURE__ */ jsx(
+        Route,
+        {
+          path: "/:lang/contact",
+          element: /* @__PURE__ */ jsx(HomePage, { contactOpen: true })
+        }
+      )
+    ] }),
     /* @__PURE__ */ jsx(
       Route,
       {
