@@ -347,7 +347,15 @@ const LanguageLayout = ({ initialContent }) => {
     content && showHeaderFooter && /* @__PURE__ */ jsx(Footer, {})
   ] }) });
 };
-const ContactForm = ({ ctaPlaceholder, content, isExpanded, onExpansionChange, onSubmit, isSubmitting, isMobileFullScreen = false }) => {
+const ContactForm = ({
+  ctaPlaceholder,
+  content,
+  isExpanded,
+  onExpansionChange,
+  onSubmit,
+  isSubmitting,
+  isMobileFullScreen = false
+}) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [formData, setFormData] = useState({
     vision: "",
@@ -391,7 +399,9 @@ const ContactForm = ({ ctaPlaceholder, content, isExpanded, onExpansionChange, o
       if (!placeholderMessages || placeholderMessages.length === 0) return;
       const currentMessageWords = placeholderMessages[messageIndex].split(" ");
       if (wordIndex < currentMessageWords.length) {
-        setAnimatedPlaceholder(currentMessageWords.slice(0, wordIndex + 1).join(" "));
+        setAnimatedPlaceholder(
+          currentMessageWords.slice(0, wordIndex + 1).join(" ")
+        );
         wordIndex++;
         animationTimeoutId.current = window.setTimeout(animate, 150);
       } else {
@@ -415,7 +425,13 @@ const ContactForm = ({ ctaPlaceholder, content, isExpanded, onExpansionChange, o
       setAnimatedPlaceholder("");
       setIsFadingOut(false);
     };
-  }, [isExpanded, isUserTyping, placeholderMessages, isMobile, isMobileFullScreen]);
+  }, [
+    isExpanded,
+    isUserTyping,
+    placeholderMessages,
+    isMobile,
+    isMobileFullScreen
+  ]);
   const handleFocus = () => {
     if (!isExpanded && !isMobileFullScreen) {
       onExpansionChange(true);
@@ -443,81 +459,115 @@ const ContactForm = ({ ctaPlaceholder, content, isExpanded, onExpansionChange, o
     });
   };
   const isVisuallyExpanded = isExpanded || isMobileFullScreen;
-  return /* @__PURE__ */ jsx("form", { onSubmit: handleSubmit, className: "w-full max-w-3xl mx-auto", children: /* @__PURE__ */ jsxs(
-    "div",
+  return /* @__PURE__ */ jsxs(
+    "form",
     {
-      className: `
-          relative rounded-2xl
-          ${isMobileFullScreen ? "p-0 bg-transparent border-none shadow-none" : `bg-white/5 border border-white/10 ${!isMobile ? "backdrop-blur-md" : ""} transition-[padding,box-shadow] duration-700 ease-in-out ${isExpanded ? "p-6 sm:p-8 shadow-2xl" : "p-2"}`}
-        `,
+      onSubmit: handleSubmit,
+      action: `https://formsubmit.co/${content.direct_email_address}`,
+      method: "POST",
+      className: "w-full max-w-3xl mx-auto",
       children: [
-        isVisuallyExpanded && !isMobileFullScreen && /* @__PURE__ */ jsx(
-          "button",
+        /* @__PURE__ */ jsx(
+          "input",
           {
-            type: "button",
-            onClick: () => onExpansionChange(false),
-            className: "absolute top-3 right-3 z-10 p-2 rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300",
-            style: { animation: "fade-in-up 0.8s ease-out forwards", animationDelay: "0.5s", opacity: 0 },
-            "aria-label": "Close form",
-            children: /* @__PURE__ */ jsx(CloseIcon, { className: "w-6 h-6" })
+            type: "hidden",
+            name: "_subject",
+            value: content.subject || "New message from your portfolio"
           }
         ),
         /* @__PURE__ */ jsxs(
           "div",
           {
             className: `
+          relative rounded-2xl
+          ${isMobileFullScreen ? "p-0 bg-transparent border-none shadow-none" : `bg-white/5 border border-white/10 ${!isMobile ? "backdrop-blur-md" : ""} transition-[padding,box-shadow] duration-700 ease-in-out ${isExpanded ? "p-6 sm:p-8 shadow-2xl" : "p-2"}`}
+        `,
+            children: [
+              isVisuallyExpanded && !isMobileFullScreen && /* @__PURE__ */ jsx(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => onExpansionChange(false),
+                  className: "absolute top-3 right-3 z-10 p-2 rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-all duration-300",
+                  style: {
+                    animation: "fade-in-up 0.8s ease-out forwards",
+                    animationDelay: "0.5s",
+                    opacity: 0
+                  },
+                  "aria-label": "Close form",
+                  children: /* @__PURE__ */ jsx(CloseIcon, { className: "w-6 h-6" })
+                }
+              ),
+              /* @__PURE__ */ jsxs(
+                "div",
+                {
+                  className: `
             grid grid-cols-1 sm:grid-cols-2 gap-6
             ${isMobileFullScreen ? "mb-6" : `transition-all duration-500 ease-in-out ${isExpanded ? "" : inputContainerClass}`}
             ${isVisuallyExpanded ? "max-h-40 mb-6" : "max-h-0 mb-0"}
           `,
-            children: [
+                  children: [
+                    /* @__PURE__ */ jsxs("div", { className: "relative", children: [
+                      /* @__PURE__ */ jsx(
+                        "input",
+                        {
+                          type: "text",
+                          name: "name",
+                          id: "name",
+                          value: formData.name,
+                          onChange: handleChange,
+                          className: "peer w-full bg-transparent border-b-2 border-white/20 p-3 text-white focus:outline-none focus:border-white/50 focus:shadow-[0_2px_10px_-2px_rgba(255,255,255,0.3)] transition",
+                          placeholder: " ",
+                          required: isExpanded,
+                          "aria-hidden": !isExpanded
+                        }
+                      ),
+                      /* @__PURE__ */ jsx(
+                        "label",
+                        {
+                          htmlFor: "name",
+                          className: "absolute left-3 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-white/80",
+                          children: content.name_label
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsxs("div", { className: "relative", children: [
+                      /* @__PURE__ */ jsx(
+                        "input",
+                        {
+                          type: "email",
+                          name: "email",
+                          id: "email",
+                          value: formData.email,
+                          onChange: handleChange,
+                          className: "peer w-full bg-transparent border-b-2 border-white/20 p-3 text-white focus:outline-none focus:border-white/50 focus:shadow-[0_2px_10px_-2px_rgba(255,255,255,0.3)] transition",
+                          placeholder: " ",
+                          required: isExpanded,
+                          "aria-hidden": !isExpanded
+                        }
+                      ),
+                      /* @__PURE__ */ jsx(
+                        "label",
+                        {
+                          htmlFor: "email",
+                          className: "absolute left-3 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-white/80",
+                          children: content.email_label
+                        }
+                      )
+                    ] })
+                  ]
+                }
+              ),
               /* @__PURE__ */ jsxs("div", { className: "relative", children: [
                 /* @__PURE__ */ jsx(
-                  "input",
+                  "textarea",
                   {
-                    type: "text",
-                    name: "name",
-                    id: "name",
-                    value: formData.name,
+                    name: "vision",
+                    value: formData.vision,
                     onChange: handleChange,
-                    className: "peer w-full bg-transparent border-b-2 border-white/20 p-3 text-white focus:outline-none focus:border-white/50 focus:shadow-[0_2px_10px_-2px_rgba(255,255,255,0.3)] transition",
-                    placeholder: " ",
-                    required: isExpanded,
-                    "aria-hidden": !isExpanded
-                  }
-                ),
-                /* @__PURE__ */ jsx("label", { htmlFor: "name", className: "absolute left-3 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-white/80", children: content.name_label })
-              ] }),
-              /* @__PURE__ */ jsxs("div", { className: "relative", children: [
-                /* @__PURE__ */ jsx(
-                  "input",
-                  {
-                    type: "email",
-                    name: "email",
-                    id: "email",
-                    value: formData.email,
-                    onChange: handleChange,
-                    className: "peer w-full bg-transparent border-b-2 border-white/20 p-3 text-white focus:outline-none focus:border-white/50 focus:shadow-[0_2px_10px_-2px_rgba(255,255,255,0.3)] transition",
-                    placeholder: " ",
-                    required: isExpanded,
-                    "aria-hidden": !isExpanded
-                  }
-                ),
-                /* @__PURE__ */ jsx("label", { htmlFor: "email", className: "absolute left-3 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-sm peer-focus:text-white/80", children: content.email_label })
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxs("div", { className: "relative", children: [
-          /* @__PURE__ */ jsx(
-            "textarea",
-            {
-              name: "vision",
-              value: formData.vision,
-              onChange: handleChange,
-              onFocus: handleFocus,
-              placeholder: !isVisuallyExpanded ? ctaPlaceholder : isMobileFullScreen ? content.vision_placeholder_mobile || "" : "",
-              className: `
+                    onFocus: handleFocus,
+                    placeholder: !isVisuallyExpanded ? ctaPlaceholder : isMobileFullScreen ? content.vision_placeholder_mobile || "" : "",
+                    className: `
               w-full bg-transparent text-white placeholder-gray-400 text-lg
               border-2 rounded-xl focus:outline-none focus:ring-0
               resize-none text-left
@@ -525,70 +575,87 @@ const ContactForm = ({ ctaPlaceholder, content, isExpanded, onExpansionChange, o
               ${isMobileFullScreen ? "" : "transition-all duration-500 ease-in-out"}
               ${isVisuallyExpanded ? "h-48 p-4" : "h-14 pl-6 pr-16 py-4 overflow-hidden"}
             `,
-              autoComplete: "off",
-              rows: 1,
-              required: true
-            }
-          ),
-          isVisuallyExpanded && !isUserTyping && !isMobile && !isMobileFullScreen && animatedPlaceholder && /* @__PURE__ */ jsx(
-            "div",
-            {
-              className: `absolute top-4 left-4 right-4 text-white/30 text-lg pointer-events-none transition-opacity duration-300 text-left ${isFadingOut ? "opacity-0" : "opacity-100"}`,
-              "aria-hidden": "true",
-              children: animatedPlaceholder.split(" ").map((word, i) => /* @__PURE__ */ jsx("span", { className: "inline-block animate-word-fade-in mr-1.5", children: word }, i))
-            }
-          ),
-          !isVisuallyExpanded && /* @__PURE__ */ jsx("div", { className: "absolute top-1/2 right-6 -translate-y-1/2 text-white/50 pointer-events-none", "aria-hidden": "true", children: /* @__PURE__ */ jsx(SendIcon, { className: "w-6 h-6" }) })
-        ] }),
-        /* @__PURE__ */ jsx(
-          "div",
-          {
-            className: `
+                    autoComplete: "off",
+                    rows: 1,
+                    required: true
+                  }
+                ),
+                isVisuallyExpanded && !isUserTyping && !isMobile && !isMobileFullScreen && animatedPlaceholder && /* @__PURE__ */ jsx(
+                  "div",
+                  {
+                    className: `absolute top-4 left-4 right-4 text-white/30 text-lg pointer-events-none transition-opacity duration-300 text-left ${isFadingOut ? "opacity-0" : "opacity-100"}`,
+                    "aria-hidden": "true",
+                    children: animatedPlaceholder.split(" ").map((word, i) => /* @__PURE__ */ jsx(
+                      "span",
+                      {
+                        className: "inline-block animate-word-fade-in mr-1.5",
+                        children: word
+                      },
+                      i
+                    ))
+                  }
+                ),
+                !isVisuallyExpanded && /* @__PURE__ */ jsx(
+                  "div",
+                  {
+                    className: "absolute top-1/2 right-6 -translate-y-1/2 text-white/50 pointer-events-none",
+                    "aria-hidden": "true",
+                    children: /* @__PURE__ */ jsx(SendIcon, { className: "w-6 h-6" })
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsx(
+                "div",
+                {
+                  className: `
             ${isMobileFullScreen ? "mt-8" : `transition-all duration-500 ease-in-out ${isExpanded ? "" : buttonContainerClass}`}
             ${isVisuallyExpanded ? "max-h-40 mt-8" : "max-h-0 mt-0"}
           `,
-            children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-end gap-4 sm:gap-6", children: [
-              content.direct_email_prompt && content.direct_email_address && /* @__PURE__ */ jsxs(
-                "p",
-                {
-                  className: "text-sm text-gray-400 order-2 sm:order-1",
-                  "aria-hidden": !isVisuallyExpanded,
-                  children: [
-                    content.direct_email_prompt,
-                    " ",
-                    /* @__PURE__ */ jsx(
-                      "a",
+                  children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row items-center justify-end gap-4 sm:gap-6", children: [
+                    content.direct_email_prompt && content.direct_email_address && /* @__PURE__ */ jsxs(
+                      "p",
                       {
-                        href: `mailto:${content.direct_email_address}`,
-                        className: "text-white/80 hover:text-white underline",
-                        children: content.direct_email_address
+                        className: "text-sm text-gray-400 order-2 sm:order-1",
+                        "aria-hidden": !isVisuallyExpanded,
+                        children: [
+                          content.direct_email_prompt,
+                          " ",
+                          /* @__PURE__ */ jsx(
+                            "a",
+                            {
+                              href: `mailto:${content.direct_email_address}`,
+                              className: "text-white/80 hover:text-white underline",
+                              children: content.direct_email_address
+                            }
+                          )
+                        ]
+                      }
+                    ),
+                    /* @__PURE__ */ jsx(
+                      "button",
+                      {
+                        type: "submit",
+                        "aria-hidden": !isVisuallyExpanded,
+                        disabled: isSubmitting,
+                        className: "order-1 sm:order-2 w-full sm:w-auto group flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg transition-all duration-300 ease-in-out transform hover:scale-[1.03] hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] disabled:opacity-70 disabled:scale-100 disabled:cursor-wait",
+                        children: isSubmitting ? /* @__PURE__ */ jsxs(Fragment, { children: [
+                          /* @__PURE__ */ jsx(BoltIcon, { className: "w-5 h-5 animate-spin" }),
+                          /* @__PURE__ */ jsx("span", { children: content.sending_button })
+                        ] }) : /* @__PURE__ */ jsxs(Fragment, { children: [
+                          content.launch_button,
+                          /* @__PURE__ */ jsx(SendIcon, { className: "w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1.5" })
+                        ] })
                       }
                     )
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                "button",
-                {
-                  type: "submit",
-                  "aria-hidden": !isVisuallyExpanded,
-                  disabled: isSubmitting,
-                  className: "order-1 sm:order-2 w-full sm:w-auto group flex items-center justify-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg transition-all duration-300 ease-in-out transform hover:scale-[1.03] hover:bg-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] disabled:opacity-70 disabled:scale-100 disabled:cursor-wait",
-                  children: isSubmitting ? /* @__PURE__ */ jsxs(Fragment, { children: [
-                    /* @__PURE__ */ jsx(BoltIcon, { className: "w-5 h-5 animate-spin" }),
-                    /* @__PURE__ */ jsx("span", { children: content.sending_button })
-                  ] }) : /* @__PURE__ */ jsxs(Fragment, { children: [
-                    content.launch_button,
-                    /* @__PURE__ */ jsx(SendIcon, { className: "w-5 h-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1.5" })
                   ] })
                 }
               )
-            ] })
+            ]
           }
         )
       ]
     }
-  ) });
+  );
 };
 const backgroundItems = [
   // Images - using reliable, thematic images from Unsplash with responsive sizes
@@ -796,7 +863,14 @@ const iconComponents = {
   code: CodeIcon,
   ux: UxIcon
 };
-const Hero = ({ content, contactFormContent, isFormExpanded, onExpansionChange, onFormSubmit, isSubmitting }) => {
+const Hero = ({
+  content,
+  contactFormContent,
+  isFormExpanded,
+  onExpansionChange,
+  onFormSubmit,
+  isSubmitting
+}) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const taglineDelay = 0.3;
   const availabilityDelay = 0.6;
@@ -824,120 +898,142 @@ const Hero = ({ content, contactFormContent, isFormExpanded, onExpansionChange, 
       aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-  return /* @__PURE__ */ jsxs("section", { id: "home", className: "min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 text-center relative overflow-hidden", children: [
-    /* @__PURE__ */ jsx(Background, { isStatic: isMobile }),
-    /* @__PURE__ */ jsxs("div", { className: "relative z-20 w-full max-w-7xl mx-auto flex flex-col items-center justify-center", children: [
-      /* @__PURE__ */ jsx(
-        "div",
-        {
-          className: `grid text-center transition-[grid-template-rows] duration-500 ease-in-out ${isFormExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`,
-          "aria-hidden": !isFormExpanded,
-          children: /* @__PURE__ */ jsx("div", { className: `overflow-hidden transition-opacity duration-300 ease-in-out ${isFormExpanded ? "opacity-100" : "opacity-0 pointer-events-none"}`, children: /* @__PURE__ */ jsx("h2", { className: "text-4xl sm:text-5xl font-bold text-white tracking-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] mb-8", children: contactFormContent.expanded_form_title }) })
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        "div",
-        {
-          className: `grid transition-[grid-template-rows] duration-500 ease-in-out ${isFormExpanded ? "grid-rows-[0fr]" : "grid-rows-[1fr]"}`,
-          "aria-hidden": isFormExpanded,
-          children: /* @__PURE__ */ jsx("div", { className: `overflow-hidden transition-opacity duration-300 ease-in-out ${isFormExpanded ? "opacity-0 pointer-events-none" : "opacity-100"}`, children: /* @__PURE__ */ jsxs("div", { className: "space-y-6", children: [
-            /* @__PURE__ */ jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsx("h1", { className: "text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-400 [filter:drop-shadow(0_4px_8px_rgba(0,0,0,0.6))] transform-gpu", children: content.name }),
-              /* @__PURE__ */ jsx(
-                "h2",
-                {
-                  className: "text-xl sm:text-2xl font-medium text-gray-300 tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] animate-fade-in-up",
-                  style: { animationDelay: `${taglineDelay}s`, opacity: 0 },
-                  children: content.tagline
-                }
-              ),
-              /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsxs(
+    "section",
+    {
+      id: "home",
+      className: "min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 text-center relative overflow-hidden",
+      children: [
+        /* @__PURE__ */ jsx(Background, { isStatic: isMobile }),
+        /* @__PURE__ */ jsxs("div", { className: "relative z-20 w-full max-w-7xl mx-auto flex flex-col items-center justify-center", children: [
+          /* @__PURE__ */ jsx(
+            "div",
+            {
+              className: `grid text-center transition-[grid-template-rows] duration-500 ease-in-out ${isFormExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`,
+              "aria-hidden": !isFormExpanded,
+              children: /* @__PURE__ */ jsx(
                 "div",
                 {
-                  className: "flex items-center justify-center gap-3 animate-fade-in-up",
-                  style: { animationDelay: `${availabilityDelay}s`, opacity: 0 },
-                  children: [
-                    /* @__PURE__ */ jsxs("span", { className: "relative flex h-3 w-3", children: [
-                      /* @__PURE__ */ jsx("span", { className: "animate-pulse-green absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" }),
-                      /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-3 w-3 bg-green-500" })
-                    ] }),
-                    /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-green-300 tracking-wider", children: content.availability })
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsx(
-                "p",
-                {
-                  className: "max-w-2xl mx-auto text-base sm:text-lg text-gray-400 font-light [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] leading-relaxed animate-fade-in-up",
-                  style: { animationDelay: `${descriptionDelay}s`, opacity: 0 },
-                  children: content.description
+                  className: `overflow-hidden transition-opacity duration-300 ease-in-out ${isFormExpanded ? "opacity-100" : "opacity-0 pointer-events-none"}`,
+                  children: /* @__PURE__ */ jsx("h2", { className: "text-4xl sm:text-5xl font-bold text-white tracking-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] mb-8", children: contactFormContent.expanded_form_title })
                 }
               )
-            ] }),
-            /* @__PURE__ */ jsx(
-              "div",
-              {
-                className: "flex flex-wrap items-center justify-center gap-3 pt-2 animate-fade-in-up",
-                style: { animationDelay: `${tagsDelay}s`, opacity: 0 },
-                children: content.tags.map((tag, index) => {
-                  const Icon = iconComponents[tag.icon];
-                  return /* @__PURE__ */ jsxs(
-                    "div",
-                    {
-                      className: "flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300",
-                      children: [
-                        Icon && /* @__PURE__ */ jsx(Icon, { className: "w-4 h-4 text-purple-300 -mt-px" }),
-                        /* @__PURE__ */ jsx("span", { children: tag.label })
-                      ]
-                    },
-                    index
-                  );
-                })
-              }
-            )
-          ] }) })
-        }
-      ),
-      /* @__PURE__ */ jsx(
-        "div",
-        {
-          className: `w-full transition-transform duration-700 ease-in-out ${isFormExpanded ? "mt-0" : "mt-6 animate-fade-in-up"}`,
-          style: !isFormExpanded ? { animationDelay: `${contactFormDelay}s`, opacity: 0 } : {},
-          children: /* @__PURE__ */ jsx(
-            ContactForm,
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "div",
             {
-              ctaPlaceholder: isMobile && contactFormContent.cta_placeholder_mobile ? contactFormContent.cta_placeholder_mobile : contactFormContent.cta_placeholder,
-              content: contactFormContent,
-              isExpanded: isFormExpanded,
-              onExpansionChange,
-              onSubmit: onFormSubmit,
-              isSubmitting
+              className: `grid transition-[grid-template-rows] duration-500 ease-in-out ${isFormExpanded ? "grid-rows-[0fr]" : "grid-rows-[1fr]"}`,
+              "aria-hidden": isFormExpanded,
+              children: /* @__PURE__ */ jsx(
+                "div",
+                {
+                  className: `overflow-hidden transition-opacity duration-300 ease-in-out ${isFormExpanded ? "opacity-0 pointer-events-none" : "opacity-100"}`,
+                  children: /* @__PURE__ */ jsxs("div", { className: "space-y-6", children: [
+                    /* @__PURE__ */ jsxs("div", { className: "space-y-4", children: [
+                      /* @__PURE__ */ jsx("h1", { className: "text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-400 [filter:drop-shadow(0_4px_8px_rgba(0,0,0,0.6))] transform-gpu", children: content.name }),
+                      /* @__PURE__ */ jsx(
+                        "h2",
+                        {
+                          className: "text-xl sm:text-2xl font-medium text-gray-300 tracking-wide [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] animate-fade-in-up",
+                          style: { animationDelay: `${taglineDelay}s`, opacity: 0 },
+                          children: content.tagline
+                        }
+                      ),
+                      /* @__PURE__ */ jsxs(
+                        "div",
+                        {
+                          className: "flex items-center justify-center gap-3 animate-fade-in-up",
+                          style: {
+                            animationDelay: `${availabilityDelay}s`,
+                            opacity: 0
+                          },
+                          children: [
+                            /* @__PURE__ */ jsxs("span", { className: "relative flex h-3 w-3", children: [
+                              /* @__PURE__ */ jsx("span", { className: "animate-pulse-green absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" }),
+                              /* @__PURE__ */ jsx("span", { className: "relative inline-flex rounded-full h-3 w-3 bg-green-500" })
+                            ] }),
+                            /* @__PURE__ */ jsx("span", { className: "text-sm font-medium text-green-300 tracking-wider", children: content.availability })
+                          ]
+                        }
+                      ),
+                      /* @__PURE__ */ jsx(
+                        "p",
+                        {
+                          className: "max-w-2xl mx-auto text-base sm:text-lg text-gray-400 font-light [text-shadow:0_2px_8px_rgba(0,0,0,0.5)] leading-relaxed animate-fade-in-up",
+                          style: { animationDelay: `${descriptionDelay}s`, opacity: 0 },
+                          children: content.description
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsx(
+                      "div",
+                      {
+                        className: "flex flex-wrap items-center justify-center gap-3 pt-2 animate-fade-in-up",
+                        style: { animationDelay: `${tagsDelay}s`, opacity: 0 },
+                        children: content.tags.map((tag, index) => {
+                          const Icon = iconComponents[tag.icon];
+                          return /* @__PURE__ */ jsxs(
+                            "div",
+                            {
+                              className: "flex items-center gap-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-sm text-gray-300",
+                              children: [
+                                Icon && /* @__PURE__ */ jsx(Icon, { className: "w-4 h-4 text-purple-300 -mt-px" }),
+                                /* @__PURE__ */ jsx("span", { children: tag.label })
+                              ]
+                            },
+                            index
+                          );
+                        })
+                      }
+                    )
+                  ] })
+                }
+              )
+            }
+          ),
+          /* @__PURE__ */ jsx(
+            "div",
+            {
+              className: `w-full transition-transform duration-700 ease-in-out ${isFormExpanded ? "mt-0" : "mt-6 animate-fade-in-up"}`,
+              style: !isFormExpanded ? { animationDelay: `${contactFormDelay}s`, opacity: 0 } : {},
+              children: /* @__PURE__ */ jsx(
+                ContactForm,
+                {
+                  ctaPlaceholder: isMobile && contactFormContent.cta_placeholder_mobile ? contactFormContent.cta_placeholder_mobile : contactFormContent.cta_placeholder,
+                  content: contactFormContent,
+                  isExpanded: isFormExpanded,
+                  onExpansionChange,
+                  onSubmit: onFormSubmit,
+                  isSubmitting
+                }
+              )
             }
           )
-        }
-      )
-    ] }),
-    /* @__PURE__ */ jsx(
-      "div",
-      {
-        className: `absolute bottom-4 left-0 right-0 z-20 text-center animate-fade-in-up transition-opacity duration-500 ${isFormExpanded ? "opacity-50 hover:opacity-100" : "opacity-100"}`,
-        style: { animationDelay: `${scrollPromptDelay}s`, opacity: 0 },
-        children: /* @__PURE__ */ jsx(
-          "a",
+        ] }),
+        /* @__PURE__ */ jsx(
+          "div",
           {
-            href: "#about",
-            onClick: handleScrollClick,
-            className: "inline-block",
-            "aria-label": "Scroll to about section",
-            children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300 cursor-pointer", children: [
-              /* @__PURE__ */ jsx("span", { className: "text-xs font-medium tracking-widest uppercase", children: content.scroll_down_prompt }),
-              /* @__PURE__ */ jsx(ArrowDownIcon, { className: "w-5 h-5 animate-bounce" })
-            ] })
+            className: `absolute bottom-4 left-0 right-0 z-20 text-center animate-fade-in-up transition-opacity duration-500 ${isFormExpanded ? "opacity-50 hover:opacity-100" : "opacity-100"}`,
+            style: { animationDelay: `${scrollPromptDelay}s`, opacity: 0 },
+            children: /* @__PURE__ */ jsx(
+              "a",
+              {
+                href: "#about",
+                onClick: handleScrollClick,
+                className: "inline-block",
+                "aria-label": "Scroll to about section",
+                children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors duration-300 cursor-pointer", children: [
+                  /* @__PURE__ */ jsx("span", { className: "text-xs font-medium tracking-widest uppercase", children: content.scroll_down_prompt }),
+                  /* @__PURE__ */ jsx(ArrowDownIcon, { className: "w-5 h-5 animate-bounce" })
+                ] })
+              }
+            )
           }
         )
-      }
-    )
-  ] });
+      ]
+    }
+  );
 };
 const About = ({ content }) => {
   if (!content) return null;
@@ -1281,10 +1377,18 @@ const MobileContactSheet = ({
 const HomePage = ({ contactOpen = false }) => {
   const { content, lang } = useAppContent();
   const location = useLocation();
-  const { submissionState, setSubmissionState, isMobileFormVisible, setIsMobileFormVisible } = useOutletContext();
+  const {
+    submissionState,
+    setSubmissionState,
+    isMobileFormVisible,
+    setIsMobileFormVisible
+  } = useOutletContext();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isDesktopFormExpanded, setIsDesktopFormExpanded] = useState(false);
-  usePageTitle(content ? `Oriello - ${content.hero.tagline}` : "Oriello - Digital Craftsmanship", lang);
+  usePageTitle(
+    content ? `Oriello - ${content.hero.tagline}` : "Oriello - Digital Craftsmanship",
+    lang
+  );
   useEffect(() => {
     if (contactOpen) {
       if (isMobile) {
@@ -1327,12 +1431,47 @@ const HomePage = ({ contactOpen = false }) => {
     }
   };
   const handleFormSubmit = async (formData) => {
+    var _a;
     setSubmissionState("submitting");
-    console.log("Form submission payload:", formData);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setSubmissionState("success");
-    if (!isMobile) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!((_a = content == null ? void 0 : content.contact_form) == null ? void 0 : _a.direct_email_address)) {
+      console.error("Recipient email address is not configured.");
+      alert("Configuration error: Cannot send message.");
+      setSubmissionState("form");
+      return;
+    }
+    const { direct_email_address: recipientEmail, subject } = content.contact_form;
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${recipientEmail}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            ...formData,
+            _subject: subject || `New message from your portfolio`
+          })
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Form submission success:", data);
+        setSubmissionState("success");
+        if (!isMobile) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      } else {
+        const data = await response.json();
+        throw new Error(data.message || "Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert(
+        `Sorry, an error occurred: ${error.message}. Please try emailing ${recipientEmail} directly.`
+      );
+      setSubmissionState("form");
     }
   };
   const handleGoBack = () => {
