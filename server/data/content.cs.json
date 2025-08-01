@@ -1,8 +1,4 @@
 {
-  "meta": {
-    "title": "Oriello - Weby na míru",
-    "description": "Tvořím weby na míru pro malé podniky a kreativce, kteří chtějí online vyniknout. Pojďme vytvořit něco, co bude fungovat stejně tvrdě jako vy."
-  },
   "navigation": {
     "projects": "Projekty",
     "testimonials": "Reference",
@@ -11,7 +7,7 @@
   "hero": {
     "name": "Oriello",
     "tagline": "Weby na míru, přímo pro tebe.",
-    "description": "Spolupracuji s malými podniky a kreativními profesionály, kteří potřebují víc než šablonu. Ať už provozujete unikátní kavárnu, spouštíte hudební projekt, otevíráte butikový obchod, nebo stavíte něco úplně jiného—vytvořím web, který makrá stejně tvrdě jako vy.",
+    "description": "Spolupracuji s malými podniky a kreativními profesionály, kteří potřebují víc než šablonu. Ať už provozujete unikátní kavárnu, spouštíte hudební projekt, otevíráte butikový obchod, nebo stavíte něco úplně jiného—vytvořím web, který pracuje stejně tvrdě jako vy.",
     "scroll_down_prompt": "Ponořit se hlouběji",
     "availability": "Přijímám nové projekty",
     "availability_status": "available",
@@ -36,7 +32,6 @@
     "launch_button": "Pojďme tvořit",
     "sending_button": "Odesílám...",
     "expanded_form_title": "Pověz mi o své vizi",
-    "subject": "Nová vize z portfolia Oriello",
     "placeholder_messages": [
       "Dělám indie hru, která spojuje retro estetiku s moderním gameplayem...",
       "Jsme DIY kapela, chystáme EP a potřebujeme něco, co sedí k našemu zvuku...",
@@ -70,7 +65,7 @@
       },
       {
         "title": "SetListGo - Nejlepší kámoš hudebníka",
-        "description": "Každý hranějící muzikant zná ten problém: načmárané setlisty, změny na poslední chvíli, sdílení s bandou. SetListGo tohle všechno řeší. Čistá, mobile-first webová appka, která nechá umělce vytvářet, spravovat a sdílet setlisty za pochodu. React.js potkává řešení reálného problému.",
+        "description": "Každý hrající muzikant zná ten problém: načmárané setlisty, změny na poslední chvíli, sdílení s bandou. SetListGo tohle všechno řeší. Čistá, mobile-first webová appka, která nechá umělce vytvářet, spravovat a sdílet setlisty za pochodu. React.js potkává řešení reálného problému.",
         "imageUrl": "https://i.ibb.co/yF0qLw2j/Sn-mek-obrazovky-2025-07-31-184543.png",
         "projectUrl": "https://setlistgo.github.io/",
         "tags": ["Webová appka", "React.js", "Hudební nástroje", "Mobile-First"]
@@ -78,9 +73,9 @@
     ]
   },
   "about": {
-    "image_alt": "Hugh Doriello, kreativní mozek za Oriello, ve svém živlu—částečně vývojář, částečně umělec.",
+    "image_alt": "Hubert Doubek, kreativní mozek za Oriello, ve svém živlu—částečně vývojář, částečně umělec.",
     "photo_url": "https://i.ibb.co/Ps56tmg5/rise-divu-37-1.jpg",
-    "heading": "Jsem Hugh - vývojář, designér a umělec.",
+    "heading": "Ahoj! Jsem  vývojář, designér a umělec.",
     "p1": "Roky stavím weby pro podniky, kterým záleží na tom, jak jsou reprezentovány online. Většina vývojářů ke každému projektu přistupuje stejně—ale vaše kavárna není stejná jako advokátní kancelář, a váš butik není stejný jako tech startup.",
     "p2": "Věnuji čas pochopení toho, co dělá váš podnik jedinečným, pak stavím něco, co to skutečně odráží. Ať už potřebujete prezentovat produkty, přijímat rezervace, budovat komunitu, nebo jen vypadat profesionálně online, postarám se, aby to fungovalo perfektně pro vaše specifické potřeby."
   },
@@ -88,7 +83,7 @@
     "title": "Co říkají ostatní tvůrci",
     "testimonials": [
       {
-        "quote": "Práce s 'Oriello' byla bezproblémová. Hugh chápe kreativní proces, komunikace byla jednoduchá a finální web mluví sám za sebe.",
+        "quote": "Práce s 'Oriello' byla bezproblémová. Hubert chápe kreativní proces, komunikace byla jednoduchá a finální web mluví sám za sebe.",
         "author": "Bc. Jan Purkart",
         "role": "Co-Founder & Lead Dev, Bell Hat Games",
         "image": "https://i.ibb.co/x8rWQR70/1730660818840.jpg",
@@ -96,7 +91,7 @@
         "projectType": "Indie herní studio"
       },
       {
-        "quote": "Konečně digitální prostor, který sedí k našemu zvuku. Hugh perfektně zachytil naši estetiku a postavil něco, co nám skutečně pomáhá spojit se s fanoušky. Odezva byla neuvěřitelná—konečně máme pořádný domov online.",
+        "quote": "Konečně digitální prostor, který sedí k našemu zvuku. Hubert perfektně zachytil naši estetiku a postavil něco, co nám skutečně pomáhá spojit se s fanoušky. Odezva byla neuvěřitelná—konečně máme pořádný domov online.",
         "author": "The Creaks",
         "role": "Alt-rocková kapela",
         "image": "https://i.ibb.co/x8m9SLBM/472706356-493140983796421-1147515090719105142-n.jpg",
@@ -185,7 +180,7 @@
     "process_steps": [
       {
         "icon": "call",
-        "title": "První kontakt",
+        "title": "Objevovací chat",
         "description": "Budeme si povídat o tvé vizi, tvém publiku a o tom, jak vypadá úspěch pro tebe."
       },
       {
