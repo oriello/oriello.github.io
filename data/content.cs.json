@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Oriello - Tvorba webů pro fotografy a kapely v Praze",
-    "description": "Dostupná tvorba webu v Praze. Tvořím na míru weby pro fotografy, kapely, umělce a kreativce. Získejte profesionální web od webového vývojáře z Prahy."
+    "title": "Oriello - Tvorba webů na míru pro malé podniky v Praze",
+    "description": "Dostupná tvorba webů v Praze. Tvořím na míru weby pro malé podniky, kavárny, studia a vizionáře. Získejte profesionální web od webového vývojáře z Prahy, který vám pomůže vyniknout."
   },
   "navigation": {
     "projects": "Projekty",
@@ -10,8 +10,8 @@
   },
   "hero": {
     "name": "Oriello",
-    "tagline": "Weby pro fotografy, kapely a kreativce",
-    "description": "Jsem webový vývojář z Prahy a tvořím dostupné, na míru šité weby pro fotografy, kapely, umělce a vizionáře. Potřebujete web, který skutečně reprezentuje vaši značku? Pojďme společně vytvořit něco jedinečného. Vaše hledání ideálního tvůrce webů v Praze končí zde.",
+    "tagline": "Weby na míru pro vaši značku",
+    "description": "Jsem webový vývojář z Prahy a tvořím dostupné, na míru šité weby pro jedinečné malé podniky. Ať už jste fotograf, máte kapelu, nebo jste umělec s vizí, tvořím digitální zážitky, které skutečně reprezentují vaši značku. Pojďme vytvořit něco, co vynikne. Vaše hledání ideálního tvůrce webů v Praze končí zde.",
     "scroll_down_prompt": "Ponořit se hlouběji",
     "availability": "Přijímám nové projekty",
     "availability_status": "available",
@@ -81,8 +81,8 @@
     "image_alt": "Hugh Doriello, kreativní mozek za Oriello, ve svém živlu—částečně vývojář, částečně umělec.",
     "photo_url": "https://i.ibb.co/Ps56tmg5/rise-divu-37-1.jpg",
     "heading": "Jsem Hugh - webový vývojář a designér z Prahy.",
-    "p1": "Jako pražský webový vývojář léta tvořím weby pro firmy, kterým záleží na jejich online prezentaci. Většina vývojářů přistupuje ke každému projektu stejně – ale váš byznys s fotografiemi není stejný jako kapela a váš butik není stejný jako technologický startup. Proto nabízím dostupnou alternativu k webovým agenturám s osobním přístupem.",
-    "p2": "Věnuji čas pochopení toho, co dělá váš projekt jedinečným. Ať už potřebujete ohromující web pro fotografa, výkonné centrum pro kapelu nebo vlastní stránku pro růst vašeho podnikání, postavím něco, co skutečně odráží vaši vizi. Pojďme v Praze vytvořit profesionální web, který vás spojí s vaším publikem."
+    "p1": "Jako pražský webový vývojář léta tvořím weby pro firmy, kterým záleží na jejich online prezentaci. Většina vývojářů přistupuje ke každému projektu stejně – ale vaše kavárna není advokátní kancelář a vaše kreativní studio není technologický startup. Proto nabízím dostupnou alternativu k webovým agenturám s osobním přístupem.",
+    "p2": "Věnuji čas pochopení toho, co dělá váš projekt jedinečným. Ať už potřebujete jako fotograf ohromující portfolio, jako kapela výkonné centrum, nebo jako malý podnik vlastní stránku pro růst, postavím něco, co skutečně odráží vaši vizi. Pojďme v Praze vytvořit profesionální web, který vás spojí s vaším publikem."
   },
   "testimonials": {
     "title": "Co říkají ostatní tvůrci",
