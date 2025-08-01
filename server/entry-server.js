@@ -304,8 +304,25 @@ const LanguageLayout = ({ initialContent }) => {
     loadContent();
   }, [currentLang, content, navigate, location]);
   const handleLangChange = (newLang) => {
-    const path = location.pathname.replace(`/${currentLang}`, `/${newLang}`);
-    navigate(path);
+    if (newLang === currentLang) return;
+    const { pathname } = location;
+    let basePath = pathname;
+    const langPrefix = `/${currentLang}`;
+    if (currentLang !== "en" && pathname.startsWith(langPrefix)) {
+      basePath = pathname.substring(langPrefix.length);
+    } else if (pathname.startsWith("/en/")) {
+      basePath = pathname.substring(3);
+    }
+    if (basePath === "") {
+      basePath = "/";
+    }
+    let newPath;
+    if (newLang === "en") {
+      newPath = basePath;
+    } else {
+      newPath = `/${newLang}${basePath === "/" ? "" : basePath}`;
+    }
+    navigate(newPath);
   };
   const mobileGradient = "radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,1) 75%)";
   const desktopGradient = "radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 80%)";
