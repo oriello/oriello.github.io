@@ -106,7 +106,7 @@
     ]
   },
   "work_collage": {
-    "title": "Víc ze studia",
+    "title": "Více ze studia",
     "view_projects_cta": "Vidět všechny projekty",
     "images": [
       {
@@ -185,7 +185,7 @@
     "process_steps": [
       {
         "icon": "call",
-        "title": "Objevovací chat",
+        "title": "První kontakt",
         "description": "Budeme si povídat o tvé vizi, tvém publiku a o tom, jak vypadá úspěch pro tebe."
       },
       {

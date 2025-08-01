@@ -1211,11 +1211,11 @@ const iconMap = {
   design: DesignIcon,
   develop: CodeIcon
 };
-const ThankYou = ({ content, availabilityStatus, onGoBack }) => {
+const ThankYou = ({ content, availabilityStatus, onGoBack, isMobileSheet = false }) => {
   const isAvailable = availabilityStatus === "available";
   const message = isAvailable ? content.message_available : content.message_unavailable;
-  return /* @__PURE__ */ jsx("div", { className: "min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 text-center relative overflow-hidden pt-28 pb-12 sm:pt-32", children: /* @__PURE__ */ jsxs("div", { className: "relative z-20 w-full max-w-4xl mx-auto flex flex-col items-center justify-center animate-fade-in-up", children: [
-    /* @__PURE__ */ jsxs("div", { className: "bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl w-full mb-12 sm:mb-16", children: [
+  return /* @__PURE__ */ jsx("div", { className: `flex flex-col items-center justify-center p-4 sm:p-8 text-center relative overflow-hidden ${isMobileSheet ? "py-6" : "min-h-screen pt-28 pb-12 sm:pt-32"}`, children: /* @__PURE__ */ jsxs("div", { className: "relative z-20 w-full max-w-4xl mx-auto flex flex-col items-center justify-center animate-fade-in-up", children: [
+    /* @__PURE__ */ jsxs("div", { className: "bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl w-full mb-8 sm:mb-16", children: [
       /* @__PURE__ */ jsx(CheckmarkIcon, { className: "w-16 h-16 sm:w-20 sm:h-20 text-green-400 mx-auto mb-6" }),
       /* @__PURE__ */ jsx("h1", { className: "text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4", children: content.title }),
       /* @__PURE__ */ jsx("p", { className: "max-w-xl mx-auto text-base sm:text-lg text-gray-300 leading-relaxed", children: message })
@@ -1330,12 +1330,13 @@ const MobileContactSheet = ({
         "aria-modal": "true",
         children: submissionState === "success" ? (
           // Thank You screen is already centered, just constrain width
-          /* @__PURE__ */ jsx("div", { className: "w-full max-w-md", children: /* @__PURE__ */ jsx(
+          /* @__PURE__ */ jsx("div", { className: "w-full max-w-md overflow-y-auto max-h-full", children: /* @__PURE__ */ jsx(
             ThankYou,
             {
               content: thankYouContent,
               availabilityStatus,
-              onGoBack
+              onGoBack,
+              isMobileSheet: true
             }
           ) })
         ) : (
