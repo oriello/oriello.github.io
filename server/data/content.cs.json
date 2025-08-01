@@ -10,8 +10,8 @@
   },
   "hero": {
     "name": "Oriello",
-    "tagline": "Weby na míru pro vaši značku",
-    "description": "Jsem webový vývojář z Prahy a tvořím dostupné, na míru šité weby pro jedinečné malé podniky. Ať už jste fotograf, máte kapelu, nebo jste umělec s vizí, tvořím digitální zážitky, které skutečně reprezentují vaši značku. Pojďme vytvořit něco, co vynikne. Vaše hledání ideálního tvůrce webů v Praze končí zde.",
+    "tagline": "Weby na míru, přímo pro tebe.",
+    "description": "Spolupracuji s malými podniky a kreativními profesionály, kteří potřebují víc než šablonu. Ať už provozujete unikátní kavárnu, spouštíte hudební projekt, otevíráte butikový obchod, nebo stavíte něco úplně jiného—vytvořím web, který makrá stejně tvrdě jako vy.",
     "scroll_down_prompt": "Ponořit se hlouběji",
     "availability": "Přijímám nové projekty",
     "availability_status": "available",
@@ -80,12 +80,12 @@
   "about": {
     "image_alt": "Hugh Doriello, kreativní mozek za Oriello, ve svém živlu—částečně vývojář, částečně umělec.",
     "photo_url": "https://i.ibb.co/Ps56tmg5/rise-divu-37-1.jpg",
-    "heading": "Jsem Hugh - webový vývojář a designér z Prahy.",
-    "p1": "Jako pražský webový vývojář léta tvořím weby pro firmy, kterým záleží na jejich online prezentaci. Většina vývojářů přistupuje ke každému projektu stejně – ale vaše kavárna není advokátní kancelář a vaše kreativní studio není technologický startup. Proto nabízím dostupnou alternativu k webovým agenturám s osobním přístupem.",
-    "p2": "Věnuji čas pochopení toho, co dělá váš projekt jedinečným. Ať už potřebujete jako fotograf ohromující portfolio, jako kapela výkonné centrum, nebo jako malý podnik vlastní stránku pro růst, postavím něco, co skutečně odráží vaši vizi. Pojďme v Praze vytvořit profesionální web, který vás spojí s vaším publikem."
+    "heading": "Jsem vývojář, designér a umělec.",
+    "p1": "Roky stavím weby pro podniky, kterým záleží na tom, jak jsou reprezentovány online. Většina vývojářů ke každému projektu přistupuje stejně—ale vaše kavárna není stejná jako advokátní kancelář, a váš butik není stejný jako tech startup.",
+    "p2": "Věnuji čas pochopení toho, co dělá váš podnik jedinečným, pak stavím něco, co to skutečně odráží. Ať už potřebujete prezentovat produkty, přijímat rezervace, budovat komunitu, nebo jen vypadat profesionálně online, postarám se, aby to fungovalo perfektně pro vaše specifické potřeby."
   },
   "testimonials": {
-    "title": "Co říkají ostatní tvůrci",
+    "title": "Co o mně říkají",
     "testimonials": [
       {
         "quote": "Práce s 'Oriello' byla bezproblémová. Hugh chápe kreativní proces, komunikace byla jednoduchá a finální web mluví sám za sebe.",

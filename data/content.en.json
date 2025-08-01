@@ -10,8 +10,8 @@
   },
   "hero": {
     "name": "Oriello",
-    "tagline": "Bespoke Websites for Your Image",
-    "description": "I'm a Prague-based web developer building affordable, bespoke websites for unique small businesses. Whether you're a photographer, run a band, or are an artist with a vision, I create digital experiences that truly represent your brand. Let's build something that stands out. Your search for the perfect website developer in Prague ends here.",
+    "tagline": "Custom websites for your image",
+    "description": "I work with small businesses and creative professionals who need more than a template. Whether you're running a unique café, launching a music project, opening a boutique store, or building something completely different—I create websites that work as hard as you do.",
     "scroll_down_prompt": "Dive Deeper",
     "availability": "Taking New Projects",
     "availability_status": "available",
@@ -80,12 +80,12 @@
   "about": {
     "image_alt": "Hugh Doriello, the creative mind behind Oriello, in his element—part developer, part artist.",
     "photo_url": "https://i.ibb.co/Ps56tmg5/rise-divu-37-1.jpg",
-    "heading": "I'm Hugh—a Prague-based web developer and designer.",
-    "p1": "As a Prague web developer, I've spent years building websites for businesses that care about how they're represented online. Most developers treat every project the same way—but your cafe isn't a law firm, and your creative studio isn't a tech startup. That's why I offer an affordable website agency alternative with a personal touch.",
-    "p2": "I take time to understand what makes your project unique. Whether you need a stunning portfolio as a photographer, a powerful hub for your band, or a custom site to grow your business, I build something that truly reflects your vision. Let's create a professional website in Prague that connects you with your audience."
+    "heading": "Developer, designer, and a helping hand",
+    "p1": "I've spent years building websites for businesses that care about how they're represented online. Most developers treat every project the same way—but your coffee shop isn't the same as a law firm, and your boutique isn't the same as a tech startup.",
+    "p2": "I take time to understand what makes your business unique, then build something that actually reflects that. Whether you need to showcase products, take bookings, build a community, or just look professional online, I'll make sure it works perfectly for your specific needs."
   },
   "testimonials": {
-    "title": "What Fellow Creators Say",
+    "title": "What They Say About Me",
     "testimonials": [
       {
         "quote": "They just get the creative process. Communication was effortless, and the final site perfectly captures what we're about.",
